@@ -24,11 +24,11 @@ module('Acceptance: Table Height', {
  * and strips the 'px'.  This alternative to using .height() is needed because
  * the literal rendered height will be slightly off from the height we set
  * through inline CSS, which can cause inaccurate calculations.
- * @param  {object} element: The DOM element we want to target
+ * @param  {string} element: The class of the DOM element we want to target
  * @return {number} The height of the element
  */
 function getCSSHeight(element) {
-  return parseInt(element.css('height'), 10);
+  return parseInt(find(element).css('height'), 10);
 }
 
 test('Table renders', function(assert) {
@@ -45,10 +45,10 @@ test('Table renders', function(assert) {
 test('Table height renders properly without a container height set', function(assert) {
   visit('/table-height');
   andThen(function() {
-    var tableBodyHeight = getCSSHeight($('.ember-table-body-container'));
-    var tableHeaderHeight = getCSSHeight($('.ember-table-header-container'));
+    var tableBodyHeight = getCSSHeight('.ember-table-body-container');
+    var tableHeaderHeight = getCSSHeight('.ember-table-header-container');
     // Current table height
-    var tableHeight = getCSSHeight($('.ember-table-tables-container'));
+    var tableHeight = getCSSHeight('.ember-table-tables-container');
     // What the table height should be
     var computedTableHeight = tableBodyHeight + tableHeaderHeight;
     assert.equal(tableHeight, computedTableHeight,
