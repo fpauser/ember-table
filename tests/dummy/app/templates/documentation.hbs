@@ -14,8 +14,8 @@
       <td>[]</td>
       <td>
         <p>
-          An array of row objects, or a promise that resolves to an array 
-          of row objects (so compatible with ember-data). 
+          An array of row objects, or a promise that resolves to an array
+          of row objects (so compatible with ember-data).
           Usually each row is a hash where the keys are column
           names and the values are the rows's values. However, could be any
           object, since each column can define a function to return the column
@@ -141,6 +141,18 @@
           <code>'single'</code> (clicking on a row selects it and deselects
           other rows), and <code>'multiple'</code> (multiple rows can be
           selected through ctrl/cmd-click or shift-click).
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>isRestrictedToContainerHeight</td>
+      <td>true</td>
+      <td>
+        <p>
+          A flag to control whether the height of the container is used to
+          calculate the table height. If <code>isRestrictedToContainerHeight</code>
+          is set to <code>false</code>, the table height will grow naturally
+          without scrolling in it's container.
         </p>
       </td>
     </tr>
